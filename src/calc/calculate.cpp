@@ -1,4 +1,5 @@
 #include "calculate.h"
+#include "embot_dsp.h"
 
 bool Calculate::invoke()
 {
