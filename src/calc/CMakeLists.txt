@@ -18,7 +18,6 @@ set(calcSrc    calculate.cpp
 
 set(calcHdr   calculate.h
               embot_dsp.h
-              strainConfigData.h
               strainRuntimeData.h
               embot_core_utils.h
               enum.h
