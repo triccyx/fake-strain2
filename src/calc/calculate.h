@@ -1,6 +1,7 @@
 #pragma once
 
-#include "StrainRuntimeData.h"
+#include "strainConfigData.h"
+#include "strainRuntimeData.h"
 
 class Calculate {
 public:
@@ -8,4 +9,5 @@ public:
 
 private:
   StrainRuntimeData runtimedata;
+  StrainConfigData configdata;
 };

@@ -12,11 +12,16 @@ set(LIBRARY_TARGET_NAME calc)
 
 set(calcSrc    calculate.cpp
                 embot_dsp.cpp
+                
 
                         )
 
 set(calcHdr   calculate.h
               embot_dsp.h
+              strainConfigData.h
+              strainRuntimeData.h
+              embot_core_utils.h
+              enum.h
                        )
 
 add_library(${LIBRARY_TARGET_NAME} SHARED ${calcHdr} ${calcSrc})
