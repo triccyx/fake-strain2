@@ -57,12 +57,12 @@ TEST(Calc, Calc_001) {
 
 
     StrainRuntimeData runtime;
-    embot::dsp::Q15 tmp[]={ 168,
-                            368,
-                            -288,
-                            560,
-                            24,
-                            -160};
+    embot::dsp::Q15 tmp[]={ 1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6};
     embot::dsp::Q15 q15value[6];
     std::copy(tmp,tmp+6,q15value);
 
