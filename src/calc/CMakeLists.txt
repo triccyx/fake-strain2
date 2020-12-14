@@ -1,19 +1,22 @@
 ################################################################################
 #                                                                              #
-# Copyright (C) 2019 Fondazione Istitito Italiano di Tecnologia (IIT)          #
+# Copyright (C) 2020 Fondazione Istitito Italiano di Tecnologia (IIT)          #
 # All Rights Reserved.                                                         #
 #                                                                              #
 ################################################################################
 
-# @author Nicolo Genesio <nicolo.genesio@iit.it> 
+# @author Luca Tricerri <luca.tricerri@iit.it> 
 include(CMakePackageConfigHelpers)
 
 set(LIBRARY_TARGET_NAME calc)
 
 set(calcSrc    calculate.cpp
+                embot_dsp.cpp
+
                         )
 
 set(calcHdr   calculate.h
+              embot_dsp.h
                        )
 
 add_library(${LIBRARY_TARGET_NAME} SHARED ${calcHdr} ${calcSrc})
