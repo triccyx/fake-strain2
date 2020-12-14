@@ -1,10 +1,10 @@
 #include "calculate.h"
 #include "embot_dsp.h"
 
-bool Calculate::invoke()
+bool Calculate::invoke(StrainRuntimeData runtimedata)
 {
     // use variable set2use, originally initted w/ eeprom value but possibly changed by can message
-    std::uint8_t set2use = runtimedata.set2use_get();
+    //std::uint8_t set2use = runtimedata.set2use_get();
     
     // in adcvalue[] we performed adc acquisition, in value[] we put the q15 values and we also have checkd vs adc saturation
     
@@ -16,16 +16,12 @@ bool Calculate::invoke()
     // default values are: M = IdentityMatrix(0x7fff); calibtare = Vector(0); currtare = Vector(0)
     
     bool q15saturated =  false;
-    
-    const embot::dsp::q15::matrix& handleCalibMatrixQ15 = configdata.transformer_matrix_handle(set2use);     
-    const embot::dsp::q15::matrix& handleCalibTareQ15 = configdata.transformer_tare_handle(set2use);   
         
     embot::dsp::Q15 q15tmpvector[6];
     embot::dsp::q15::matrix tmpQ15vector(6, 1, q15tmpvector);
     
-    
-    embot::dsp::q15::add(runtimedata.adcvalueQ15vector, handleCalibTareQ15, tmpQ15vector, q15saturated);
-    embot::dsp::q15::multiply(handleCalibMatrixQ15, tmpQ15vector, runtimedata.forcetorqueQ15vector, q15saturated);
+    embot::dsp::q15::add(runtimedata.adcvalueQ15vector, handleCalibTareQ15_, tmpQ15vector, q15saturated);
+    embot::dsp::q15::multiply(handleCalibMatrixQ15_, tmpQ15vector, runtimedata.forcetorqueQ15vector, q15saturated);
     embot::dsp::q15::add(runtimedata.forcetorqueQ15vector, runtimedata.currtareQ15vector, runtimedata.forcetorqueQ15vector, q15saturated);
     
     // copy 
