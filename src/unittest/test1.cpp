@@ -45,15 +45,27 @@ TEST(Calc, Calc_001) {
                     (short int)0x0052
                     };    
 
-    embot::dsp::Q15 tareQ15[]={0,0,0,0,0,0};//{0.005126,0.01123,-0.0087,0.0170,0,00073,-0,0053};
+    embot::dsp::Q15 tareQ15[]={  168,
+                            368,
+                            -288,
+                            560,
+                            24,
+                            -160};
+
     calc.handleCalibMatrixQ15_.load(6,6,calibQ15);
     calc.handleCalibTareQ15_.load(1,6,tareQ15);
 
 
     StrainRuntimeData runtime;
-    embot::dsp::Q15 tmp[]={0x1,0x1,0x1,0x1,0x1,0x1};//ADC Q15 format
+    embot::dsp::Q15 tmp[]={ 168,
+                            368,
+                            -288,
+                            560,
+                            24,
+                            -160};
     embot::dsp::Q15 q15value[6];
     std::copy(tmp,tmp+6,q15value);
+
     calc.invoke(runtime);
 
     std::cout<<runtime.data.torque.x<<std::endl;
