@@ -4,11 +4,11 @@
 
 class Calculate {
 public:
-  bool invoke();
+  bool invoke(StrainRuntimeData runtimedata);
 
-  const embot::dsp::q15::matrix handleCalibMatrixQ15_; // Matrice di trasformazione
-  const embot::dsp::q15::matrix handleCalibTareQ15_; // Vettore tara
+  embot::dsp::q15::matrix handleCalibMatrixQ15_; // Matrice di trasformazione
+  embot::dsp::q15::matrix handleCalibTareQ15_;   // Vettore tara
 
 private:
-  StrainRuntimeData runtimedata_;
+  
 };
