@@ -1,7 +1,7 @@
 #include "calculate.h"
 #include "embot_dsp.h"
 
-bool Calculate::invoke(StrainRuntimeData runtimedata)
+bool Calculate::invoke(StrainRuntimeData& runtimedata)
 {
     // use variable set2use, originally initted w/ eeprom value but possibly changed by can message
     //std::uint8_t set2use = runtimedata.set2use_get();

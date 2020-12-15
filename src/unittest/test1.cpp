@@ -44,31 +44,32 @@ TEST(Calc, Calc_001) {
                     (short int)0x0003,
                     (short int)0x0052
                     };    
-
-    embot::dsp::Q15 tareQ15[]={  168,
-                            368,
-                            -288,
-                            560,
-                            24,
-                            -160};
-
+    embot::dsp::Q15 tareQ15[]={ 
+                                (short int)168,
+                                (short int)368,
+                                (short int)65248,
+                                (short int)560,
+                                (short int)24,
+                                (short int)65360
+                                };                                
     calc.handleCalibMatrixQ15_.load(6,6,calibQ15);
-    calc.handleCalibTareQ15_.load(1,6,tareQ15);
+    calc.handleCalibTareQ15_.load(6,1,tareQ15);
 
 
     StrainRuntimeData runtime;
-    embot::dsp::Q15 tmp[]={ 1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6};
-    embot::dsp::Q15 q15value[6];
-    std::copy(tmp,tmp+6,q15value);
+    embot::dsp::Q15 tmp[]={
+                            (short int)(264.0+32768),
+                            (short int)(3096.0+32768),
+                            (short int)(816.0+32768),
+                            (short int)(-1640.0+32768),
+                            (short int)(400.0+32768),
+                            (short int)(-4344.0+32768)
+                        };
+    runtime.adcvalueQ15vector.load(6,1,tmp);
 
     calc.invoke(runtime);
 
-    std::cout<<runtime.data.torque.x<<std::endl;
+    //EXPECT_EQ(0x1,runtime.data.torque.x);
 
-    EXPECT_EQ(0x1,runtime.data.torque.x);
+    runtime.dump();
 }
