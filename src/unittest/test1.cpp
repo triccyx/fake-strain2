@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "calculate.h"
+#include "embot_dsp.h"
 
 #include <algorithm>
 #include <iostream>
@@ -60,7 +61,7 @@ TEST(Calc, Calc_001)
         0x52};
     embot::dsp::Q15 calibQ15[36];
     for (int t = 0; t < 36; ++t)
-        calibQ15[t] = /* embot::dsp::q15::U16toQ15*/ ((uint16_t)tmpCalib[t]);
+        calibQ15[t] =  embot::dsp::q15::U16toQ15(tmpCalib[t]);
     calc.handleCalibMatrixQ15_.load(6, 6, calibQ15);
 
     //*********
@@ -68,14 +69,14 @@ TEST(Calc, Calc_001)
     uint16_t tmpTare[] = { 168, 368, 65248, 560, 24, 65360};
     embot::dsp::Q15 tareQ15[6];
     for (int t = 0; t < 6; ++t)
-        tareQ15[t] = /*embot::dsp::q15::U16toQ15*/(tmpTare[t]);
+        tareQ15[t] = embot::dsp::q15::U16toQ15(tmpTare[t]);
     calc.handleCalibTareQ15_.load(6, 1, tareQ15);
 
     StrainRuntimeData runtimedata;
     //*********
     //ADC value
-    std::int16_t tmp[] = {-9968, 8472, 4048, 13928, -5624, -1120};
-    //std::int16_t tmp[] = {264, 3096, 808, -1624, 400 ,-4360 };
+    //std::int16_t tmp[] = {-9968, 8472, 4048, 13928, -5624, -1120};
+    std::int16_t tmp[] = {264, 3096, 808, -1624, 400 ,-4360 };
     std::copy(tmp, tmp + 6, runtimedata.data.adcvalue);
     for (int t = 0; t < 6; ++t)
         runtimedata.data.q15value[t] = /*embot::dsp::q15::U16toQ15*/(runtimedata.data.adcvalue[t]);
