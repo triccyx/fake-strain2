@@ -43,4 +43,4 @@ if(NOT unittest)
   add_subdirectory(${unittest_SOURCE_DIR} ${unittest_BINARY_DIR})
 endif()
 
-add_subdirectory(src/calc)
+add_subdirectory(src)
