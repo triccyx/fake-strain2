@@ -54,16 +54,21 @@ TEST(Calc, Calc_001) {
                                 };                                
     calc.handleCalibMatrixQ15_.load(6,6,calibQ15);
     calc.handleCalibTareQ15_.load(6,1,tareQ15);
+ 
+ 
+ 
+ 
+ 
 
 
     StrainRuntimeData runtime;
     embot::dsp::Q15 tmp[]={
-                            (short int)(264.0+32768),
-                            (short int)(3096.0+32768),
-                            (short int)(816.0+32768),
-                            (short int)(-1640.0+32768),
-                            (short int)(400.0+32768),
-                            (short int)(-4344.0+32768)
+                            (short int)(-9968+  32768),
+                            (short int)(8472+ 32768),
+                            (short int)(4048+  32768),
+                            (short int)(13928+32768),
+                            (short int)(-5624+  32768),
+                            (short int)(-1120+32768)
                         };
     runtime.adcvalueQ15vector.load(6,1,tmp);
 

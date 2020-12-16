@@ -140,8 +140,8 @@ public:
 
   void dump()
   {
-      std::cout<<(float)data.force.x/32768<<"::"<<(float)data.force.y/32768<<"::"<<(float)data.force.z/32768<<"::"<<std::endl;
-      std::cout<<(float)data.torque.x/32768<<"::"<<(float)data.torque.y/32768<<"::"<<(float)data.torque.z/32768<<"::"<<std::endl;
+      std::cout<<(float)(data.force.x-32768)*0.45<<"::"<<(float)(data.force.y-32768)*0.45<<"::"<<(float)(data.force.z-32768)*0.45<<"::"<<std::endl;
+      std::cout<<(float)(data.torque.x-32768)*0.45<<"::"<<(float)(data.torque.y-32768)*0.45<<"::"<<(float)(data.torque.z-32768)*0.45<<"::"<<std::endl;
 
       std::cout<<(float)data.force.x<<"::"<<(float)data.force.y<<"::"<<(float)data.force.z<<"::"<<std::endl;
       std::cout<<(float)data.torque.x<<"::"<<(float)data.torque.y<<"::"<<(float)data.torque.z<<"::"<<std::endl;
