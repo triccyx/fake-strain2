@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.5)
 include(FetchContent)
 include(GNUInstallDirs)
 
-project(stain2
+project(strain2
         LANGUAGES C CXX
         VERSION 2.3.0)
 

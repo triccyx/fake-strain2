@@ -1,19 +1,26 @@
 ################################################################################
 #                                                                              #
-# Copyright (C) 2019 Fondazione Istitito Italiano di Tecnologia (IIT)          #
+# Copyright (C) 2020 Fondazione Istitito Italiano di Tecnologia (IIT)          #
 # All Rights Reserved.                                                         #
 #                                                                              #
 ################################################################################
 
-# @author Nicolo Genesio <nicolo.genesio@iit.it> 
+# @author Luca Tricerri <luca.tricerri@iit.it> 
 include(CMakePackageConfigHelpers)
 
 set(LIBRARY_TARGET_NAME calc)
 
 set(calcSrc    calculate.cpp
+                embot_dsp.cpp
+                
+
                         )
 
 set(calcHdr   calculate.h
+              embot_dsp.h
+              strainRuntimeData.h
+              embot_core_utils.h
+              enum.h
                        )
 
 add_library(${LIBRARY_TARGET_NAME} SHARED ${calcHdr} ${calcSrc})
@@ -23,8 +30,6 @@ target_link_libraries(${LIBRARY_TARGET_NAME} PUBLIC ${Common_LIBRARIES})
 target_include_directories(${LIBRARY_TARGET_NAME} PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>"
                                                          "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${LIBRARY_TARGET_NAME}>")
 
-set_target_properties(${LIBRARY_TARGET_NAME} PROPERTIES VERSION  ${${PROJECT_NAME}_VERSION}
-                                                        PUBLIC_HEADER "${calcHdr}")
 
 install(TARGETS ${LIBRARY_TARGET_NAME}
         EXPORT ${LIBRARY_TARGET_NAME}
