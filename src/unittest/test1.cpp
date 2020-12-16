@@ -61,20 +61,20 @@ TEST(Calc, Calc_001) {
  
 
 
-    StrainRuntimeData runtime;
-    embot::dsp::Q15 tmp[]={
-                            (short int)(-9968+  32768),
-                            (short int)(8472+ 32768),
-                            (short int)(4048+  32768),
-                            (short int)(13928+32768),
-                            (short int)(-5624+  32768),
-                            (short int)(-1120+32768)
+    StrainRuntimeData runtimedata;
+    runtimedata.data.q15value[0]={
+                            (-9968+  32768),
+                            (8472+ 32768),
+                            (4048+  32768),
+                            (13928+32768),
+                            (-5624+  32768),
+                            (-1120+32768)
                         };
-    runtime.adcvalueQ15vector.load(6,1,tmp);
+    runtimedata.adcvalueQ15vector.load(6,1,runtimedata.data.q15value[0]);
 
-    calc.invoke(runtime);
+    calc.invoke(runtimedata);
 
     //EXPECT_EQ(0x1,runtime.data.torque.x);
 
-    runtime.dump();
+    runtimedata.dump();
 }
