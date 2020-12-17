@@ -7,13 +7,10 @@
 constexpr uint16_t offset = 32768;
 constexpr double scaleFactor = 3000;
 
-void convertOnLinuxMachine(embot::dsp::Q15 *forcetorque)
+void convertOnLinuxMachine(embot::core::utils::Triple<std::uint16_t>& force)
 {
-    std::cout << embot::dsp::q15::convert(forcetorque[0]) << "::" << embot::dsp::q15::convert(forcetorque[1]) << "::" << embot::dsp::q15::convert(forcetorque[2]) << "::" << std::endl;
-    std::cout << embot::dsp::q15::convert(forcetorque[3]) << "::" << embot::dsp::q15::convert(forcetorque[4]) << "::" << embot::dsp::q15::convert(forcetorque[5]) << "::" << std::endl;
-
-    std::cout << embot::dsp::q15::convert(forcetorque[0]) * scaleFactor << "::" << embot::dsp::q15::convert(forcetorque[1]) * scaleFactor << "::" << embot::dsp::q15::convert(forcetorque[2]) * scaleFactor << "::" << std::endl;
-    std::cout << embot::dsp::q15::convert(forcetorque[3]) * scaleFactor << "::" << embot::dsp::q15::convert(forcetorque[4]) * scaleFactor << "::" << embot::dsp::q15::convert(forcetorque[5]) * scaleFactor << "::" << std::endl;
+    std::cout<<"Raw::"<< force.x << "::" << force.y << "::" << force.z << "::" << std::endl;
+    std::cout<<"Real::"<< (force.x-offset)*scaleFactor/offset << "::" << (force.y-offset)*scaleFactor/offset << "::" << (force.z-offset)*scaleFactor/offset << "::" << std::endl;
 }
 
 TEST(Calc, Calc_001)
@@ -74,7 +71,8 @@ TEST(Calc, Calc_001)
     StrainRuntimeData runtimedata;
     //*********
     //ADC value
-    std::int16_t tmp[] = {-9968, 8472, 4048, 13928, -5624, -1120};
+    std::int16_t tmp[] = {1000,3416,-592,-1592,152,-3104};//72 127 5.7 1.5 -1.5 -437
+    //std::int16_t tmp[] = {-9968, 8472, 4048, 13928, -5624, -1120};
     //std::int16_t tmp[] = {264, 3096, 808, -1624, 400 ,-4360 };
     std::copy(tmp, tmp + 6, runtimedata.data.adcvalue);
     for (int t = 0; t < 6; ++t)
@@ -84,8 +82,8 @@ TEST(Calc, Calc_001)
     //*********
     //Calc
     calc.invoke(runtimedata);
-    
-    convertOnLinuxMachine(runtimedata.data.forcetorque);
+
+    convertOnLinuxMachine(runtimedata.data.force);
 
     //EXPECT_EQ(0x1,runtime.data.torque.x);
 }
