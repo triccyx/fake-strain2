@@ -5,7 +5,7 @@ include(GNUInstallDirs)
 
 project(strain2
         LANGUAGES C CXX
-        VERSION 2.3.0)
+        VERSION 1.0.0)
 
 
 # Control where libraries and executables are placed during the build.

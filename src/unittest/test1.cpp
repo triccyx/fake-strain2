@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "calculate.h"
+#include "embot_dsp.h"
 
 #include <algorithm>
 #include <iostream>
@@ -57,7 +58,7 @@ TEST(Calc, Calc_001)
         0x52};
     embot::dsp::Q15 calibQ15[36];
     for (int t = 0; t < 36; ++t)
-        calibQ15[t] = /* embot::dsp::q15::U16toQ15*/ ((uint16_t)tmpCalib[t]);
+        calibQ15[t] =  embot::dsp::q15::U16toQ15(tmpCalib[t]);
     calc.handleCalibMatrixQ15_.load(6, 6, calibQ15);
 
     //*********
@@ -65,7 +66,7 @@ TEST(Calc, Calc_001)
     uint16_t tmpTare[] = { 168, 368, 65248, 560, 24, 65360};
     embot::dsp::Q15 tareQ15[6];
     for (int t = 0; t < 6; ++t)
-        tareQ15[t] = /*embot::dsp::q15::U16toQ15*/(tmpTare[t]);
+        tareQ15[t] = embot::dsp::q15::U16toQ15(tmpTare[t]);
     calc.handleCalibTareQ15_.load(6, 1, tareQ15);
 
     StrainRuntimeData runtimedata;
