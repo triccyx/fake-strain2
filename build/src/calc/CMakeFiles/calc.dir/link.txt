@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC -g  -shared -Wl,-soname,libcalc.so -o ../../lib/libcalc.so CMakeFiles/calc.dir/firmware.cpp.o CMakeFiles/calc.dir/embot_dsp.cpp.o  -ldl -lpthread 
