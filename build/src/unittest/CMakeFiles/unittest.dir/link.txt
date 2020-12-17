@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -rdynamic CMakeFiles/unittest.dir/gtest_main.cc.o CMakeFiles/unittest.dir/test1.cpp.o  -o ../../bin/unittest  -Wl,-rpath,/home/triccyx/Documents/fake-strain2/build/lib: ../../lib/libcalc.so ../../lib/libgtestd.a -ldl -lpthread -lpthread 

@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/triccyx/Documents/fake-strain2/build/_deps/unittest-subbuild/CMakeFiles/unittest-populate"
+		},
+		{
+			"file" : "/home/triccyx/Documents/fake-strain2/build/_deps/unittest-subbuild/CMakeFiles/unittest-populate.rule"
+		},
+		{
+			"file" : "/home/triccyx/Documents/fake-strain2/build/_deps/unittest-subbuild/CMakeFiles/unittest-populate-complete.rule"
+		},
+		{
+			"file" : "/home/triccyx/Documents/fake-strain2/build/_deps/unittest-subbuild/unittest-populate-prefix/src/unittest-populate-stamp/unittest-populate-install.rule"
+		},
+		{
+			"file" : "/home/triccyx/Documents/fake-strain2/build/_deps/unittest-subbuild/unittest-populate-prefix/src/unittest-populate-stamp/unittest-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/triccyx/Documents/fake-strain2/build/_deps/unittest-subbuild/unittest-populate-prefix/src/unittest-populate-stamp/unittest-populate-download.rule"
+		},
+		{
+			"file" : "/home/triccyx/Documents/fake-strain2/build/_deps/unittest-subbuild/unittest-populate-prefix/src/unittest-populate-stamp/unittest-populate-update.rule"
+		},
+		{
+			"file" : "/home/triccyx/Documents/fake-strain2/build/_deps/unittest-subbuild/unittest-populate-prefix/src/unittest-populate-stamp/unittest-populate-patch.rule"
+		},
+		{
+			"file" : "/home/triccyx/Documents/fake-strain2/build/_deps/unittest-subbuild/unittest-populate-prefix/src/unittest-populate-stamp/unittest-populate-configure.rule"
+		},
+		{
+			"file" : "/home/triccyx/Documents/fake-strain2/build/_deps/unittest-subbuild/unittest-populate-prefix/src/unittest-populate-stamp/unittest-populate-build.rule"
+		},
+		{
+			"file" : "/home/triccyx/Documents/fake-strain2/build/_deps/unittest-subbuild/unittest-populate-prefix/src/unittest-populate-stamp/unittest-populate-test.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"unittest-populate"
+		],
+		"name" : "unittest-populate"
+	}
+}
