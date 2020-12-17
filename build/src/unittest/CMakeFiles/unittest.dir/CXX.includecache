@@ -47,6 +47,8 @@ gtest/gtest.h
 /home/triccyx/Documents/fake-strain2/src/unittest/gtest/gtest.h
 calculate.h
 /home/triccyx/Documents/fake-strain2/src/unittest/calculate.h
+embot_dsp.h
+/home/triccyx/Documents/fake-strain2/src/unittest/embot_dsp.h
 algorithm
 -
 iostream
