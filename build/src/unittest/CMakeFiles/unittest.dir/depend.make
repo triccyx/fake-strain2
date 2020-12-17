@@ -23,10 +23,10 @@ src/unittest/CMakeFiles/unittest.dir/gtest_main.cc.o: _deps/unittest-src/googlet
 src/unittest/CMakeFiles/unittest.dir/gtest_main.cc.o: _deps/unittest-src/googletest/include/gtest/internal/gtest-string.h
 src/unittest/CMakeFiles/unittest.dir/gtest_main.cc.o: _deps/unittest-src/googletest/include/gtest/internal/gtest-type-util.h
 
-src/unittest/CMakeFiles/unittest.dir/test1.cpp.o: ../src/calc/calculate.h
 src/unittest/CMakeFiles/unittest.dir/test1.cpp.o: ../src/calc/embot_core_utils.h
 src/unittest/CMakeFiles/unittest.dir/test1.cpp.o: ../src/calc/embot_dsp.h
 src/unittest/CMakeFiles/unittest.dir/test1.cpp.o: ../src/calc/enum.h
+src/unittest/CMakeFiles/unittest.dir/test1.cpp.o: ../src/calc/firmware.h
 src/unittest/CMakeFiles/unittest.dir/test1.cpp.o: ../src/calc/strainRuntimeData.h
 src/unittest/CMakeFiles/unittest.dir/test1.cpp.o: ../src/unittest/test1.cpp
 src/unittest/CMakeFiles/unittest.dir/test1.cpp.o: _deps/unittest-src/googletest/include/gtest/gtest-death-test.h

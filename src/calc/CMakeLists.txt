@@ -10,13 +10,13 @@ include(CMakePackageConfigHelpers)
 
 set(LIBRARY_TARGET_NAME calc)
 
-set(calcSrc    calculate.cpp
+set(calcSrc    firmware.cpp
                 embot_dsp.cpp
                 
 
                         )
 
-set(calcHdr   calculate.h
+set(calcHdr   firmware.h
               embot_dsp.h
               strainRuntimeData.h
               embot_core_utils.h

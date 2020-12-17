@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/triccyx/Documents/fake-strain2/src/calc/calculate.cpp
-calculate.h
-/home/triccyx/Documents/fake-strain2/src/calc/calculate.h
-embot_dsp.h
-/home/triccyx/Documents/fake-strain2/src/calc/embot_dsp.h
-
-/home/triccyx/Documents/fake-strain2/src/calc/calculate.h
-strainRuntimeData.h
-/home/triccyx/Documents/fake-strain2/src/calc/strainRuntimeData.h
-
 /home/triccyx/Documents/fake-strain2/src/calc/embot_core_utils.h
 cstdint
 -
@@ -33,6 +23,16 @@ cinttypes
 -
 cstring
 -
+
+/home/triccyx/Documents/fake-strain2/src/calc/firmware.cpp
+firmware.h
+/home/triccyx/Documents/fake-strain2/src/calc/firmware.h
+embot_dsp.h
+/home/triccyx/Documents/fake-strain2/src/calc/embot_dsp.h
+
+/home/triccyx/Documents/fake-strain2/src/calc/firmware.h
+strainRuntimeData.h
+/home/triccyx/Documents/fake-strain2/src/calc/strainRuntimeData.h
 
 /home/triccyx/Documents/fake-strain2/src/calc/strainRuntimeData.h
 embot_core_utils.h

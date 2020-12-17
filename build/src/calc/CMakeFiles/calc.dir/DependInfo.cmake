@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/triccyx/Documents/fake-strain2/src/calc/calculate.cpp" "/home/triccyx/Documents/fake-strain2/build/src/calc/CMakeFiles/calc.dir/calculate.cpp.o"
   "/home/triccyx/Documents/fake-strain2/src/calc/embot_dsp.cpp" "/home/triccyx/Documents/fake-strain2/build/src/calc/CMakeFiles/calc.dir/embot_dsp.cpp.o"
+  "/home/triccyx/Documents/fake-strain2/src/calc/firmware.cpp" "/home/triccyx/Documents/fake-strain2/build/src/calc/CMakeFiles/calc.dir/firmware.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

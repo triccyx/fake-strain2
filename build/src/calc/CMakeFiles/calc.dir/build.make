@@ -57,18 +57,18 @@ include src/calc/CMakeFiles/calc.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/calc/CMakeFiles/calc.dir/flags.make
 
-src/calc/CMakeFiles/calc.dir/calculate.cpp.o: src/calc/CMakeFiles/calc.dir/flags.make
-src/calc/CMakeFiles/calc.dir/calculate.cpp.o: ../src/calc/calculate.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/triccyx/Documents/fake-strain2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/calc/CMakeFiles/calc.dir/calculate.cpp.o"
-	cd /home/triccyx/Documents/fake-strain2/build/src/calc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/calc.dir/calculate.cpp.o -c /home/triccyx/Documents/fake-strain2/src/calc/calculate.cpp
+src/calc/CMakeFiles/calc.dir/firmware.cpp.o: src/calc/CMakeFiles/calc.dir/flags.make
+src/calc/CMakeFiles/calc.dir/firmware.cpp.o: ../src/calc/firmware.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/triccyx/Documents/fake-strain2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/calc/CMakeFiles/calc.dir/firmware.cpp.o"
+	cd /home/triccyx/Documents/fake-strain2/build/src/calc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/calc.dir/firmware.cpp.o -c /home/triccyx/Documents/fake-strain2/src/calc/firmware.cpp
 
-src/calc/CMakeFiles/calc.dir/calculate.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/calc.dir/calculate.cpp.i"
-	cd /home/triccyx/Documents/fake-strain2/build/src/calc && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/triccyx/Documents/fake-strain2/src/calc/calculate.cpp > CMakeFiles/calc.dir/calculate.cpp.i
+src/calc/CMakeFiles/calc.dir/firmware.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/calc.dir/firmware.cpp.i"
+	cd /home/triccyx/Documents/fake-strain2/build/src/calc && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/triccyx/Documents/fake-strain2/src/calc/firmware.cpp > CMakeFiles/calc.dir/firmware.cpp.i
 
-src/calc/CMakeFiles/calc.dir/calculate.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/calc.dir/calculate.cpp.s"
-	cd /home/triccyx/Documents/fake-strain2/build/src/calc && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/triccyx/Documents/fake-strain2/src/calc/calculate.cpp -o CMakeFiles/calc.dir/calculate.cpp.s
+src/calc/CMakeFiles/calc.dir/firmware.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/calc.dir/firmware.cpp.s"
+	cd /home/triccyx/Documents/fake-strain2/build/src/calc && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/triccyx/Documents/fake-strain2/src/calc/firmware.cpp -o CMakeFiles/calc.dir/firmware.cpp.s
 
 src/calc/CMakeFiles/calc.dir/embot_dsp.cpp.o: src/calc/CMakeFiles/calc.dir/flags.make
 src/calc/CMakeFiles/calc.dir/embot_dsp.cpp.o: ../src/calc/embot_dsp.cpp
@@ -85,13 +85,13 @@ src/calc/CMakeFiles/calc.dir/embot_dsp.cpp.s: cmake_force
 
 # Object files for target calc
 calc_OBJECTS = \
-"CMakeFiles/calc.dir/calculate.cpp.o" \
+"CMakeFiles/calc.dir/firmware.cpp.o" \
 "CMakeFiles/calc.dir/embot_dsp.cpp.o"
 
 # External object files for target calc
 calc_EXTERNAL_OBJECTS =
 
-lib/libcalc.so: src/calc/CMakeFiles/calc.dir/calculate.cpp.o
+lib/libcalc.so: src/calc/CMakeFiles/calc.dir/firmware.cpp.o
 lib/libcalc.so: src/calc/CMakeFiles/calc.dir/embot_dsp.cpp.o
 lib/libcalc.so: src/calc/CMakeFiles/calc.dir/build.make
 lib/libcalc.so: src/calc/CMakeFiles/calc.dir/link.txt

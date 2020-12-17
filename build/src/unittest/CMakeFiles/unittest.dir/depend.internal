@@ -24,10 +24,10 @@ src/unittest/CMakeFiles/unittest.dir/gtest_main.cc.o
  _deps/unittest-src/googletest/include/gtest/internal/gtest-string.h
  _deps/unittest-src/googletest/include/gtest/internal/gtest-type-util.h
 src/unittest/CMakeFiles/unittest.dir/test1.cpp.o
- ../src/calc/calculate.h
  ../src/calc/embot_core_utils.h
  ../src/calc/embot_dsp.h
  ../src/calc/enum.h
+ ../src/calc/firmware.h
  ../src/calc/strainRuntimeData.h
  /home/triccyx/Documents/fake-strain2/src/unittest/test1.cpp
  _deps/unittest-src/googletest/include/gtest/gtest-death-test.h

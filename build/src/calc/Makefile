@@ -171,33 +171,6 @@ calc/fast:
 	cd /home/triccyx/Documents/fake-strain2/build && $(MAKE) -f src/calc/CMakeFiles/calc.dir/build.make src/calc/CMakeFiles/calc.dir/build
 .PHONY : calc/fast
 
-calculate.o: calculate.cpp.o
-
-.PHONY : calculate.o
-
-# target to build an object file
-calculate.cpp.o:
-	cd /home/triccyx/Documents/fake-strain2/build && $(MAKE) -f src/calc/CMakeFiles/calc.dir/build.make src/calc/CMakeFiles/calc.dir/calculate.cpp.o
-.PHONY : calculate.cpp.o
-
-calculate.i: calculate.cpp.i
-
-.PHONY : calculate.i
-
-# target to preprocess a source file
-calculate.cpp.i:
-	cd /home/triccyx/Documents/fake-strain2/build && $(MAKE) -f src/calc/CMakeFiles/calc.dir/build.make src/calc/CMakeFiles/calc.dir/calculate.cpp.i
-.PHONY : calculate.cpp.i
-
-calculate.s: calculate.cpp.s
-
-.PHONY : calculate.s
-
-# target to generate assembly for a file
-calculate.cpp.s:
-	cd /home/triccyx/Documents/fake-strain2/build && $(MAKE) -f src/calc/CMakeFiles/calc.dir/build.make src/calc/CMakeFiles/calc.dir/calculate.cpp.s
-.PHONY : calculate.cpp.s
-
 embot_dsp.o: embot_dsp.cpp.o
 
 .PHONY : embot_dsp.o
@@ -225,6 +198,33 @@ embot_dsp.cpp.s:
 	cd /home/triccyx/Documents/fake-strain2/build && $(MAKE) -f src/calc/CMakeFiles/calc.dir/build.make src/calc/CMakeFiles/calc.dir/embot_dsp.cpp.s
 .PHONY : embot_dsp.cpp.s
 
+firmware.o: firmware.cpp.o
+
+.PHONY : firmware.o
+
+# target to build an object file
+firmware.cpp.o:
+	cd /home/triccyx/Documents/fake-strain2/build && $(MAKE) -f src/calc/CMakeFiles/calc.dir/build.make src/calc/CMakeFiles/calc.dir/firmware.cpp.o
+.PHONY : firmware.cpp.o
+
+firmware.i: firmware.cpp.i
+
+.PHONY : firmware.i
+
+# target to preprocess a source file
+firmware.cpp.i:
+	cd /home/triccyx/Documents/fake-strain2/build && $(MAKE) -f src/calc/CMakeFiles/calc.dir/build.make src/calc/CMakeFiles/calc.dir/firmware.cpp.i
+.PHONY : firmware.cpp.i
+
+firmware.s: firmware.cpp.s
+
+.PHONY : firmware.s
+
+# target to generate assembly for a file
+firmware.cpp.s:
+	cd /home/triccyx/Documents/fake-strain2/build && $(MAKE) -f src/calc/CMakeFiles/calc.dir/build.make src/calc/CMakeFiles/calc.dir/firmware.cpp.s
+.PHONY : firmware.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -238,12 +238,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... calc"
-	@echo "... calculate.o"
-	@echo "... calculate.i"
-	@echo "... calculate.s"
 	@echo "... embot_dsp.o"
 	@echo "... embot_dsp.i"
 	@echo "... embot_dsp.s"
+	@echo "... firmware.o"
+	@echo "... firmware.i"
+	@echo "... firmware.s"
 .PHONY : help
 
 

@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "calculate.h"
+#include "firmware.h"
 #include "embot_dsp.h"
 
 #include <algorithm>
@@ -18,7 +18,7 @@ TEST(Calc, Calc_001)
 {
     //*********
     //CalibMatrix
-    Calculate calc;
+    Firmware calc;
     uint16_t tmpCalib[] = {
         0x2b9,
         0xfff8,
@@ -72,7 +72,7 @@ TEST(Calc, Calc_001)
     StrainRuntimeData runtimedata;
     //*********
     //ADC value
-    std::int16_t tmp[] = {1000,3416,-592,-1592,152,-3104};//72 127 5.7 1.5 -1.5 -437
+    std::int16_t tmp[] = {1000,3416,-592,-1592,152,-3104};//expected 72 127 5.7 1.5 -1.5 -437
     //std::int16_t tmp[] = {-9968, 8472, 4048, 13928, -5624, -1120};
     //std::int16_t tmp[] = {264, 3096, 808, -1624, 400 ,-4360 };
     std::copy(tmp, tmp + 6, runtimedata.data.adcvalue);

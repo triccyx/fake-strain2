@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../src/calc/calculate.h
-strainRuntimeData.h
-../src/calc/strainRuntimeData.h
-
 ../src/calc/embot_core_utils.h
 cstdint
 -
@@ -28,6 +24,10 @@ cinttypes
 cstring
 -
 
+../src/calc/firmware.h
+strainRuntimeData.h
+../src/calc/strainRuntimeData.h
+
 ../src/calc/strainRuntimeData.h
 embot_core_utils.h
 ../src/calc/embot_core_utils.h
@@ -45,8 +45,8 @@ iostream
 /home/triccyx/Documents/fake-strain2/src/unittest/test1.cpp
 gtest/gtest.h
 /home/triccyx/Documents/fake-strain2/src/unittest/gtest/gtest.h
-calculate.h
-/home/triccyx/Documents/fake-strain2/src/unittest/calculate.h
+firmware.h
+/home/triccyx/Documents/fake-strain2/src/unittest/firmware.h
 embot_dsp.h
 /home/triccyx/Documents/fake-strain2/src/unittest/embot_dsp.h
 algorithm

@@ -2,7 +2,7 @@
 
 #include "strainRuntimeData.h"
 
-class Calculate {
+class Firmware {
 public:
   bool invoke(StrainRuntimeData& runtimedata);
 
