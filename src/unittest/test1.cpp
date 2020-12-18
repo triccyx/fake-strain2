@@ -18,7 +18,6 @@ TEST(Calc, Calc_001)
 {
     //*********
     //CalibMatrix
-    Firmware calc;
     uint16_t tmpCalib[] = {
         0x2b9,
         0xfff8,
@@ -58,20 +57,23 @@ TEST(Calc, Calc_001)
         0x52};
     embot::dsp::Q15 calibQ15[36];
     for (int t = 0; t < 36; ++t)
-        calibQ15[t] =  /*embot::dsp::q15::U16toQ15*/(tmpCalib[t]);
-    calc.handleCalibMatrixQ15_.load(6, 6, calibQ15);
+        calibQ15[t] =  embot::dsp::q15::U16toQ15(tmpCalib[t]);
+    embot::dsp::q15::matrix matrix;
+    matrix.load(6, 6, calibQ15);
+
 
     //*********
     //TareMatrix
-    uint16_t tmpTare[] = { 168, 368, 65248, 560, 24, 65360};
+    int16_t tmpTare[] = { 168, 368, -(65248-offset), 560, 24, -(65360-offset)};//Fare conversione verificare in FW updater
     embot::dsp::Q15 tareQ15[6];
     for (int t = 0; t < 6; ++t)
         tareQ15[t] = /*embot::dsp::q15::U16toQ15*/(tmpTare[t]);
-    calc.handleCalibTareQ15_.load(6, 1, tareQ15);
+    embot::dsp::q15::matrix tare;
+    tare.load(6, 1, tareQ15);
 
-    StrainRuntimeData runtimedata;
     //*********
     //ADC value
+    StrainRuntimeData runtimedata;
     std::int16_t tmp[] = {1000,3416,-592,-1592,152,-3104};//expected 72 127 5.7 1.5 -1.5 -437
     //std::int16_t tmp[] = {-9968, 8472, 4048, 13928, -5624, -1120};
     //std::int16_t tmp[] = {264, 3096, 808, -1624, 400 ,-4360 };
@@ -82,8 +84,11 @@ TEST(Calc, Calc_001)
 
     //*********
     //Calc
+    Firmware calc(matrix,tare);
     calc.invoke(runtimedata);
 
+    //*********
+    //PC104
     convertOnLinuxMachine(runtimedata.data.force);
 
     //EXPECT_EQ(0x1,runtime.data.torque.x);

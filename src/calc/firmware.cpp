@@ -1,6 +1,12 @@
 #include "firmware.h"
 #include "embot_dsp.h"
 
+Firmware::Firmware(const embot::dsp::q15::matrix& handleCalibMatrixQ15,const embot::dsp::q15::matrix& handleCalibTareQ15):
+                                                                    handleCalibMatrixQ15_(handleCalibMatrixQ15),
+                                                                    handleCalibTareQ15_(handleCalibTareQ15)
+{
+}
+
 bool Firmware::invoke(StrainRuntimeData& runtimedata)
 {
     // use variable set2use, originally initted w/ eeprom value but possibly changed by can message
