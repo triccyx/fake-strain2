@@ -93,5 +93,7 @@ TEST(Calc, Calc_001)
     convertOnLinuxMachine(runtimedata.data.force,runtimedata.data.torque);
 
     //EXPECT_EQ(0x1,runtime.data.torque.x);
+    double expected[]={107.4,110,45,1.8,-1.19,-1887};
+    std::cout<<"Expected:"<<expected[0]<<":"<<expected[1]<<":"<<expected[2]<<":"<<expected[3]<<":"<<expected[4]<<":"<<expected[5]<<":"<<std::endl;
 }
 
