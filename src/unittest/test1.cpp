@@ -8,10 +8,12 @@
 constexpr uint16_t offset = 32768;
 constexpr double scaleFactor = 3000;
 
-void convertOnLinuxMachine(embot::core::utils::Triple<std::uint16_t>& force)
+void convertOnLinuxMachine(embot::core::utils::Triple<std::uint16_t>& force,embot::core::utils::Triple<std::uint16_t>& torque)
 {
-    std::cout<<"Raw::"<< force.x << "::" << force.y << "::" << force.z << "::" << std::endl;
-    std::cout<<"Real::"<< (force.x-offset)*scaleFactor/offset << "::" << (force.y-offset)*scaleFactor/offset << "::" << (force.z-offset)*scaleFactor/offset << "::" << std::endl;
+    std::cout<<"Raw force out of FT via CAN::"<<std::hex<< force.x << "::" << force.y << "::" << force.z << "::" << std::endl;
+    std::cout<<"Raw torque out of FT via CAN::"<<std::hex<< torque.x << "::" << torque.y << "::" << torque.z << "::" << std::endl;
+    std::cout<<"Real force::"<< (force.x-offset)*scaleFactor/offset << "::" << (force.y-offset)*scaleFactor/offset << "::" << (force.z-offset)*scaleFactor/offset << "::" << std::endl;
+    std::cout<<"Real torque::"<< (torque.x-offset)*scaleFactor/offset << "::" << (torque.y-offset)*scaleFactor/offset << "::" << (torque.z-offset)*scaleFactor/offset << "::" << std::endl;
 }
 
 TEST(Calc, Calc_001)
@@ -57,29 +59,27 @@ TEST(Calc, Calc_001)
         0x52};
     embot::dsp::Q15 calibQ15[36];
     for (int t = 0; t < 36; ++t)
-        calibQ15[t] =  embot::dsp::q15::U16toQ15(tmpCalib[t]);
+        calibQ15[t] =  (int16_t)(tmpCalib[t]);
     embot::dsp::q15::matrix matrix;
     matrix.load(6, 6, calibQ15);
 
 
     //*********
     //TareMatrix
-    int16_t tmpTare[] = { 168, 368, -(65248-offset), 560, 24, -(65360-offset)};//Fare conversione verificare in FW updater
+    uint16_t tmpTare[] = { 0x00A8,0x0170,0xFFE0,0x0230,0x0018,0xFF50};// --> {168,368,65248,560,24,65360}
+
     embot::dsp::Q15 tareQ15[6];
     for (int t = 0; t < 6; ++t)
-        tareQ15[t] = /*embot::dsp::q15::U16toQ15*/(tmpTare[t]);
+        tareQ15[t] = (int16_t)(tmpTare[t]);
     embot::dsp::q15::matrix tare;
     tare.load(6, 1, tareQ15);
 
     //*********
     //ADC value
     StrainRuntimeData runtimedata;
-    std::int16_t tmp[] = {1000,3416,-592,-1592,152,-3104};//expected 72 127 5.7 1.5 -1.5 -437
-    //std::int16_t tmp[] = {-9968, 8472, 4048, 13928, -5624, -1120};
-    //std::int16_t tmp[] = {264, 3096, 808, -1624, 400 ,-4360 };
-    std::copy(tmp, tmp + 6, runtimedata.data.adcvalue);
+    std::int16_t tmp[] = {1187,2710,488,-1438,750,-3712};// equal to --> std::uint16_t tmp[] = {0x04A3,0x0A96,0x01E8,0xFA62,0x02EE,0xF180};
     for (int t = 0; t < 6; ++t)
-        runtimedata.data.q15value[t] = /*embot::dsp::q15::U16toQ15*/(runtimedata.data.adcvalue[t]);
+        runtimedata.data.q15value[t] = (int16_t)(tmp[t]);
     runtimedata.adcvalueQ15vector.load(6, 1, runtimedata.data.q15value);
 
     //*********
@@ -89,7 +89,9 @@ TEST(Calc, Calc_001)
 
     //*********
     //PC104
-    convertOnLinuxMachine(runtimedata.data.force);
+    std::cout<<runtimedata.forcetorqueQ15vector.get(0,0)<<std::endl;
+    convertOnLinuxMachine(runtimedata.data.force,runtimedata.data.torque);
 
     //EXPECT_EQ(0x1,runtime.data.torque.x);
 }
+

@@ -28,7 +28,7 @@ bool Firmware::invoke(StrainRuntimeData& runtimedata)
     
     embot::dsp::q15::add(runtimedata.adcvalueQ15vector, handleCalibTareQ15_, tmpQ15vector, q15saturated);
     embot::dsp::q15::multiply(handleCalibMatrixQ15_, tmpQ15vector, runtimedata.forcetorqueQ15vector, q15saturated);
-    embot::dsp::q15::add(runtimedata.forcetorqueQ15vector, runtimedata.currtareQ15vector, runtimedata.forcetorqueQ15vector, q15saturated);
+    //embot::dsp::q15::add(runtimedata.forcetorqueQ15vector, runtimedata.currtareQ15vector, runtimedata.forcetorqueQ15vector, q15saturated);
     
     // copy 
     
